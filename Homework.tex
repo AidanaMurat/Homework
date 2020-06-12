@@ -1,0 +1,372 @@
+
+
+\documentclass[a4paper,12pt]{article} % добавить leqno в [] для нумерации слева
+
+
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+\DeclareMathOperator{\sgn}{sign}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\Lin}{\mathrm{Lin}}
+\DeclareMathOperator{\Linp}{\Lin^{\perp}}
+\DeclareMathOperator*\plim{plim}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\amn}{arg\,min}
+\DeclareMathOperator*{\amx}{arg\,max}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\pCorr}{pCorr}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cBinom}{\mathcal{Binom}}
+\newcommand{\cBin}{\cBinom}
+\newcommand{\cPois}{\mathcal{Pois}}
+\newcommand{\cBeta}{\mathcal{Beta}}
+\newcommand{\cGamma}{\mathcal{Gamma}}
+\newcommand \N{\mathbb{N}}
+\newcommand \R{\mathbb{R}}
+\newcommand \Z{\mathbb{Z}}
+\newcommand{\dx}[1]{\,\mathrm{d}#1} 
+\newcommand{\ind}[1]{\mathbbm{1}_{\{#1\}}} 
+\newcommand{\eqdef}{\mathrel{\stackrel{\rm def}=}}
+\newcommand{\iid}{\mathrel{\stackrel{\rm i.\,i.\,d.}\sim}}
+\newcommand{\const}{\mathrm{const}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+%%% Заголовок
+\author{Айдана Муратова}
+\title{Домашнее задание}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Промежуточный экзамен 2017-2018}
+
+\begin{enumerate}
+
+    \item
+
+    \[ \Var(X) = \E(X^2) - (\E(X))^2 \]
+    \[ (\E(X^2) = \Var(X) + \E(X))^2 = 10\]
+    
+    $\P(X^2 \geq 100)$ 
+    $X^2 \geq 0$ всегда, используем эквивалентную формулу из следствия неравенства Маркова.
+    
+    \[\P(X^2 \geq 100) \leq \frac{\E(X^2)}{100} = 0.1 \] - верхняя граница диапозона
+    
+    Следовательно, $\P(X^2 \geq 100)$ принадлежит $[0, 0.1]$
+
+    Ответ: A
+
+    \item
+
+    \[ \E(\xi) =\lambda \]
+    \[ \Var\xi) =\lambda \]
+    
+    \[ \Var(\xi) = \E(\xi^2) - (\E(\xi))^2 \]
+    \[ \E(\xi^2) = \Var(\xi) + (\E(\xi))^2 = \lambda + \lambda^2 = \lambda \cdot (1 + \lambda)\]
+
+    Ответ: E
+
+    \item
+    
+    \[ \Corr(X+Y,Y) = \frac{\Cov(X+Y,Y)}{\sqrt{\Var(X+Y)\cdot \Var(Y)}} = \frac{6}{\sqrt{7\cdot 9}} = \frac{2}{\sqrt{7}} \]
+
+    \[ \Var(X+Y) = \Var(X) + \Var(Y) + 2 \cdot \Cov(X,Y) = 4 + 9 + 2 \cdot (-3) = 7 \]
+
+    \[\Cov(X+Y,Y) = \Cov(X,Y) + \Cov(Y,Y) = -3 + 9 = 6\]
+
+    Ответ: C
+    
+    \item
+    
+    Функция плотности для случайной величины с нормальным распределением:
+    
+    \[ f(x)=\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+    
+    $\sigma=1$ 
+    $\mu=0$
+
+    Ответ: B
+
+    \item
+
+    \[f_{X,Y}(1,1) = \frac{1}{S} = \frac{1}{\frac{1}{2}\cdot 4\cdot 2} = \frac{1}{4}\]
+
+    Ответ: A
+
+    \item
+    
+    
+    События A, B и C независимы в совокупности, если
+    
+    \[ \P(ABC) = \P(A)\P(B)\P(C) \]
+
+    Ответ: B
+
+    \item
+
+    Построили график функции плотности $\xi$ 
+    прямоугольник с h = $\frac{1}{4}$
+    Интеграл от $-\infty$ до $+\infty$ от функции плотности равен единице, следовательно, площадь всего прямоугольника равна единице:
+    
+    \[\P({\xi\in[3,6]}) = \frac{1}{4}\]
+
+    Ответ: B
+    
+    \item
+
+    $X, Y$ – случайные величины
+
+    \[\P(X=-5) = \ldots = \P(X=5) = \frac{1}{11}\]
+
+    \[\P(Y=-1) = \P(Y=0) = \P(Y=1) = \frac{1}{3}\]
+
+    Так как $X + Y^2 = 2$, то допускаются следующие значения:
+    \[Y = 1, X = 1\]
+    \[Y = 0, X = 2\]
+    \[Y = -1, X = 1\]
+
+    Так как случайные величины независимые, следует: 
+    \[\P(X + Y^2 = 2) = \frac{1}{11} \cdot\frac{1}{3} \cdot 3 = \frac{1}{11}\]
+
+    Ответ: C
+
+    \item
+    
+    Кол-во секторов:
+
+    \[\frac{2\pi}{\frac{\pi}{3}} = 6\]
+    
+    Зачения точек круга равновероятны, следовательно:
+
+    \[\P(\text{<<красный>>}) = \frac{1}{6}\]
+
+    Ответ: E
+
+    \item
+    
+    \[\P(A\cup B) = \P(A) + \P(B) - \P(A\cap B)\]
+
+    \[0.6 = 0.3 + \P(B) - 0.2\]
+    
+    Следует:
+
+    \[\P(B) = 0.5\]
+
+    Ответ: B
+
+    \item
+    
+    Если $a$, $b$, $c$ —  константы, $X$, $Y$ — случайные величины:
+    \[\Var(aX + bY + c) = a^2 \Var(X) + b^2 \Var(Y) + 2ab\Cov(X,Y)\]
+    
+    Тогда:
+
+    \[\Var(2X - Y + 1) = 4\cdot \Var(X) + \Var(Y) - 4 \cdot \Cov(X,Y) \]
+    
+    \[\Var(2X - Y + 1) = 4 \cdot 4 + 9 - 4 \cdot (-3) = 37\]
+
+    Ответ: B
+
+    \item
+    
+    По закону больших чисел:
+
+    \[\plim _{n\rightarrow +\infty}\frac{X_{1}^2 + \dots + X_{n}^2}{n} = \E(X^2) = \Var(X) +(\E(X))^2 = 1\]
+
+    Ответ: B
+
+    \item
+
+    Условная функция плотности:
+
+    \[f\left(x\mid y=\frac{1}{2}\right) = \frac{f\left(x,\frac{1}{2}\right)}{f_{y}\left(\frac{1}{2}\right)} = \frac{6x\cdot\frac{1}{4}}{\frac{3}{4}} = 2x\]
+
+    \[f_{y}(y) = \int_0^1 6\cdot x\cdot y^2 dx = \left.3 \cdot x^2 \cdot y^2\right|_0^1  = 3\cdot y^2, y \in [0;1] \]
+    
+    \[f_{y}\left(\frac{1}{2}\right) = 3 \cdot \left(\frac{1}{2}\right)^2 = \frac{3}{4}\]
+
+    Ответ: C
+
+    \item
+
+    Неизвестно, чему равно $n$. Можно решить методом подбора
+    
+    Ответ: ?
+
+    \item
+
+    \[\Cov(X+2Y, 2X + 3) = \Cov(X+2Y, 2X) = \Cov(X, 2X) + \Cov(2Y, 2X) \]
+    \[\Cov(X+2Y, 2X + 3) = 2 \cdot \Cov(X,X) + 4 \cdot \Cov(X,Y) = 2 \cdot 4 + 4 \cdot (-3) = -4\]
+
+    Ответ: A
+
+    \item
+
+    \[\E((X-1)Y) = \E(XY - Y) = \E(XY) - \E(Y) = \Cov(X,Y) + \E(X)\cdot\E(Y) -\E(Y)\] 
+    \[\E((X-1)Y) = -3 + (-2) - 2 = -7\]
+
+    Ответ: B
+
+    \item
+    
+    $\P(X_{i} = 1) = \frac{1}{6}$
+
+    $\P(X_{i} = 0) = \frac{5}{6}$
+
+    \[\P(X_{1} + X_{2} = 1) = \P(X_{1} = 0, X_{2} = 1) + \P(X_{1} = 1, X_{2} = 0) \]
+    \[\P(X_{1} + X_{2} = 1) = \frac{5}{6} \cdot \frac{1}{6} + \frac{1}{6} \cdot \frac{5}{6} = \frac{10}{36}\]
+    
+    \[\P(X_{1} = 0\mid X_{1} + X_{2} = 1) = \frac{\P(X_{1} = 0\cap X_{1} + X_{2} = 1)}{X_{1} + X_{2} = 1}) = \frac{1}{2}\]
+    
+    Ответ: B
+
+    \item
+
+    \[X + Y \sim \N(\E(X) + \E(Y), \Var(X) + \Var(Y))\]
+
+    \[X + Y \sim \N(3,7)\]
+
+    \[\P(X + Y\leq 3) = \P\left(\frac{X+Y-3}{\sqrt{7}} < \frac{3-3}{\sqrt{7}}\right) = (\Z\leq 0) = \frac{1}{2}\]
+
+    Ответ: C
+
+    \item
+
+    \[\P(i=1,2,3\mid \text{<<6>>}) = \frac{\P(i=1,2,3\cap \text{<<6>>})}{\P(\text{<<6>>})} = \frac{\frac{3}{5}\cdot \frac{1}{6}}{\frac{1}{5}\cdot \frac{1}{6} + \frac{1}{5}\cdot \frac{1}{6} + \frac{1}{5}\cdot \frac{1}{6} + \frac{1}{5}\cdot \frac{1}{2} + \frac{1}{5}\cdot \frac{1}{10}} = \frac{\frac{3}{30}}{\frac{11}{50}} = \frac{5}{11} \]
+
+    Ответ: C
+
+    \item
+
+    A) $1\cdot1 - 2\cdot2 < 0$
+
+    B) $1\cdot9 - 4\cdot4 < 0$
+
+    C) $9\cdot6 - 7\cdot7 > 0$
+    
+    D) отрицательная
+    
+    E) несимметричная
+
+    Ответ: C
+
+    \item
+
+    \[\E(\alpha X + (1 - \alpha)Y) = \alpha \E(X) + (1-\alpha) \E(Y) = -\alpha + 2\cdot(1-\alpha) = 0\]
+    \[2 - 3\cdot\alpha = 0\]
+    \[\alpha = \frac{2}{3}\]
+
+    Ответ: A
+
+    \item
+
+    \[\P(\xi = 0) = (1-p)^n = \frac{1}{4^2} = \frac{1}{16}\]
+
+    Ответ: B
+
+    \item
+ 
+    \[\P(X\geq1) = 1 - \P(k=0) = 1 - e^{-4}\]
+
+    Ответ: C
+
+    \item
+    
+    \[\E(\xi^2) = \Var(\xi) + (\E(\xi))^2 = p\cdot (1-p) + p^2 = p\]
+
+    Ответ: B
+
+    \item
+
+    \[\E(\xi) = \frac{1}{\lambda}\]
+    \[\Var(\xi) = \frac{1}{\lambda^2}\]
+
+    \[\E(\xi^2) = \Var(\xi) + (\E(\xi))^2 = \frac{1}{\lambda^2} + \frac{1}{\lambda^2} = \frac{2}{\lambda^2}\]
+
+    Ответ: A
+
+    \item
+
+    Кол-во секторов:
+
+    \[\frac{2\pi}{\frac{\pi}{3}} = 6\]
+
+    \[\P(\text{<<красный>>}) = \P(\text{<<синий>>}) =\frac{1}{6}\]
+    
+    Ответ: E
+
+    \item
+
+    \[\E(XY) = \int_0^1\int_0^1 x\cdot y \cdot 6 \cdot x \cdot y^2 dxdy = \left.\int_0^1 2\cdot x^3 \cdot y^3 \right|_0^1 dy = \left.\frac{2\cdot y^4}{4}\right|_0^1 = \frac{1}{2}\]
+
+    Ответ: A
+
+    \item
+    
+    \[\Var(\alpha X + (1-\alpha) Y) = \alpha^2 \Var(X) + (1-\alpha)^2 \Var(Y) + 2\cdot \Cov(X,Y)\cdot\alpha\cdot(1-\alpha)\]
+    \[\Var(\alpha X + (1-\alpha) Y) = 4\cdot\alpha^2 + 9\cdot(1-\alpha)^2 - 6\cdot\alpha\cdot(1-\alpha) = 4\cdot\alpha^2 + 9 - 18\cdot\alpha + 9\cdot\alpha^2 - 6\cdot\alpha + 6\cdot \alpha^2\]
+    \[\Var(\alpha X + (1-\alpha) Y) = 19\cdot\alpha^2 - 24\cdot\alpha + 9\]
+    
+    Точка минимума:
+    \[\alpha^{*} = \frac{24}{38} =\frac{12}{19}\]
+
+    Ответ: нет верного ответа
+
+    \item
+
+    \[\P(\text{<<без багажа>>}) = \frac{1}{4}\]
+    \[\P(\text{<<с рюкзаком>>}\mid\text{<<без багажа>>}) = 0.5\]
+    \[\P(\text{<<с рюкзаком>>}\mid\text{<<c багажом>>}) = \frac{55}{150}\]
+
+    \begin{multline*}
+        \P(\text{<<без рюкзака>>}) = \P(\text{<<без рюкзака>>}\mid\text{<<без багажа>>})\P(\text{<<без багажа>>}) +\\+ \P(\text{<<без рюкзака>>}\mid\text{<<с багажом>>})\P(\text{<<с багажом>>}) = \frac{1}{2}\cdot\frac{1}{4} + \frac{95}{150} \cdot\frac{3}{4} = 0.6
+    \end{multline*}
+   
+
+    Ответ: A
+
+    \item
+
+    \[\P(|X-2| \geq 10) \leq \frac{\Var(X)}{100}\]
+
+    \[\P(|X-2| \leq 10) \geq 1 - \frac{\Var(X)}{100} = 0.94\]
+
+    Ответ: C
+
+\end{enumerate}
+
+\end{document}
